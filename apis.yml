@@ -1,7 +1,27 @@
 aid: findoctave
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/findoctave.png
 name: Findoctave
-description: Findoctave is a company surfaced as a portfolio company of felicis and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Findoctave (operating as Octave) is a mental health care provider offering
+  virtual and in-person therapy across 20+ U.S. states. Services include individual,
+  couples, and family therapy, DBT, and specialized centers of excellence for perinatal
+  and postpartum health, LGBTQIA+ (queer resiliency), trauma, and women's emotional
+  health. Octave is in-network with major insurers (Aetna, Blue Shield of California,
+  BCBS plans, Health Net, and others) and publishes a therapist directory, cost
+  calculator, and getting-started flow through its consumer website. Surfaced as a
+  portfolio company of Felicis and added to the API Evangelist network; Octave exposes
+  no public developer API, so this profile is a company identity record rather than
+  an API listing.
 url: https://raw.githubusercontent.com/api-evangelist/findoctave/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +31,14 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
+- Mental Health
+- Healthcare
+- Therapy
+- Telehealth
+- Behavioral Health
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,5 +46,32 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/findoctave-domain-security.yml
+- type: WellKnown
+  url: well-known/findoctave-well-known.yml
+- type: LLMsTxt
+  url: llms/findoctave-llms.txt
 - type: Website
   url: https://findoctave.com
+- type: About
+  url: https://www.findoctave.com/about
+- type: Blog
+  url: https://blog.findoctave.com/
+- type: GettingStarted
+  url: https://www.findoctave.com/getting-started
+- type: Pricing
+  url: https://www.findoctave.com/insurance
+- type: Login
+  url: https://my.findoctave.com/portal
+- type: Support
+  url: https://www.findoctave.com/contact
+- type: TermsOfService
+  url: https://www.findoctave.com/terms
+- type: PrivacyPolicy
+  url: https://www.findoctave.com/privacy
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

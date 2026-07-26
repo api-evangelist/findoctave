@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: probed
+source: live HTTP probes of https://findoctave.com/.well-known/*
+host: findoctave.com
+endpoints:
+- path: /.well-known/security.txt
+  status: 404
+  file: null
+- path: /.well-known/openid-configuration
+  status: 404
+  file: null
+- path: /.well-known/oauth-authorization-server
+  status: 404
+  file: null
+- path: /.well-known/api-catalog
+  status: 404
+  file: null
+- path: /.well-known/ai-plugin.json
+  status: 404
+  file: null
+notes: No /.well-known/ documents published. An llms.txt IS published at the site
+  root (200) and is captured verbatim in llms/findoctave-llms.txt.
