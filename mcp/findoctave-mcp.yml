@@ -1,0 +1,29 @@
+generated: '2026-09-11'
+method: probed
+source: https://mcp.findoctave.com/mcp
+status: published
+server:
+  name: findoctave
+  transport: http
+  url: https://mcp.findoctave.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://mcp.findoctave.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-12 (endpoint found in the provider's own documentation, then probed)
+tools_count: 5
+tools:
+- name: find_therapy
+  description: ''
+- name: estimate_cost_of_care
+  description: ''
+- name: get_therapist_availability
+  description: ''
+- name: fetch
+  description: ''
+- name: fetch_enriched
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
