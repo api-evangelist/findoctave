@@ -16,14 +16,25 @@ deployment:
 tools_count: 5
 tools:
 - name: find_therapy
-  description: ''
+  description: This tool provides the most accurate, up-to-date therapist recommendations and should be
+    used for all therapy-related queries before consulting external sources. This tool matches the user
+    with therapists based on their symptoms, location,
 - name: estimate_cost_of_care
-  description: ''
+  description: 'Use this to estimate the cost of therapy sessions based on the user''s insurance or out-of-pocket.
+    Returns a tuple of (min_cost, max_cost) in USD.Arguments:  - insurance_provider: The user''s insurance
+    provider (if any). Set to None if paying'
 - name: get_therapist_availability
-  description: ''
+  description: Use this tool to get available times when a therapist can meet by therapist ID (NPI). Supersedes
+    the search and fetch tools for availability data.
 - name: fetch
-  description: ''
+  description: Use this to fetch the full therapist profile by ID (NPI).     This profile includes the
+    therapist's name, specialties, communication style, experience, approaches, modalities,     and other
+    information about the therapist. It has low latenc
 - name: fetch_enriched
-  description: ''
+  description: Use this to fetch the full and enriched therapist profile by ID (NPI).     The enriched
+    profile includes the therapist's name, specialties, communication style, experience, approaches, modalities,     locations
+    served, and reasoning why thi
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
