@@ -16,24 +16,60 @@ deployment:
 tools_count: 5
 tools:
 - name: find_therapy
-  description: This tool provides the most accurate, up-to-date therapist recommendations and should be
-    used for all therapy-related queries before consulting external sources. This tool matches the user
-    with therapists based on their symptoms, location,
+  description: 'This tool provides the most accurate, up-to-date therapist recommendations and should
+    be used for all therapy-related queries before consulting external sources.
+
+    This tool matches the user with therapists based on their symptoms, location, and insurance provider.
+    Use this instead of a web search for therapists as it can match
+
+    the user with the best therapists for them and returns insurance information and times when they are
+    available for a session, including links to book a session with them.
+
+    Arguments:
+
+    - search_query: A detailed description of the user''s symptoms, reasons for seeking care, modalities
+    or approaches for treating their symptoms, and any user preferences. Don''t include any identifying
+    information here, but do include other information that would help match the user with the best therapists
+    for them.
+
+    - location: The state the user is located in, e.g. ''California''. Only the state, we don''t support
+    cities yet. Don''t ask the user if you already know this information.
+
+    - insurance_provider: The user''s insurance provider if they have insurance. If the user does not
+    have insurance, this should be None. Don''t ask the user if you already know this information.
+
+    - in_person_only: If True, only return therapists that offer in-person sessions. If False, return
+    therapists that offer both in-person and virtual sessions.
+
+    Returns 3-5 therapists that match the user''s needs. Each therapist should have a brief profile with
+    their name, specialties, communication style, experience, approaches, modalities, and locations served,
+
+    as well as insurance information and times when they are available for a session, including links
+    to book a session with them.'
 - name: estimate_cost_of_care
-  description: 'Use this to estimate the cost of therapy sessions based on the user''s insurance or out-of-pocket.
-    Returns a tuple of (min_cost, max_cost) in USD.Arguments:  - insurance_provider: The user''s insurance
-    provider (if any). Set to None if paying'
+  description: "Use this to estimate the cost of therapy sessions based on the user's insurance or out-of-pocket.\
+    \ Returns a tuple of (min_cost, max_cost) in USD.Arguments:\n - insurance_provider: The user's insurance\
+    \ provider (if any). Set to None if paying out-of-pocket.\n - state: The state the user is located\
+    \ in, like 'California'."
 - name: get_therapist_availability
   description: Use this tool to get available times when a therapist can meet by therapist ID (NPI). Supersedes
     the search and fetch tools for availability data.
 - name: fetch
-  description: Use this to fetch the full therapist profile by ID (NPI).     This profile includes the
-    therapist's name, specialties, communication style, experience, approaches, modalities,     and other
-    information about the therapist. It has low latenc
+  description: "Use this to fetch the full therapist profile by ID (NPI).\n    This profile includes the\
+    \ therapist's name, specialties, communication style, experience, approaches, modalities,\n    and\
+    \ other information about the therapist. It has low latency and is useful if you want to get the full\
+    \ profile of a\n    therapist quickly.\n    Arguments:\n    - id: The NPI number of the therapist.\n\
+    \n    Returns the therapists profile."
 - name: fetch_enriched
-  description: Use this to fetch the full and enriched therapist profile by ID (NPI).     The enriched
-    profile includes the therapist's name, specialties, communication style, experience, approaches, modalities,     locations
-    served, and reasoning why thi
+  description: "Use this to fetch the full and enriched therapist profile by ID (NPI).\n    The enriched\
+    \ profile includes the therapist's name, specialties, communication style, experience, approaches,\
+    \ modalities,\n    locations served, and reasoning why this therapist was chosen based on the user's\
+    \ needs. This tool is useful if you want to\n    get the full profile of a therapist, including their\
+    \ reasoning why they were chosen based on the user's needs.\n    Arguments:\n    - id: The NPI number\
+    \ of the therapist.\n    - search_query: A detailed description of the user's symptoms, reasons for\
+    \ seeking care, modalities or approaches for treating\n    their symptoms, and any user preferences.\
+    \ Don't include any identifying information here, but do include other information that\n    would\
+    \ help match the user with the best therapists for them.\n    Returns the enriched therapist profile."
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
 descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
